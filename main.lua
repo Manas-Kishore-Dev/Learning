@@ -2,6 +2,7 @@ local love = require("love")
 Speed = 100  -- speed of the player
 
 function love.load()
+    Anim8 = require("Libraries/anim8.lua")
     Player = {}
 
     Player.x = 400
