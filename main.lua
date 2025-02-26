@@ -6,16 +6,14 @@ love.graphics.setDefaultFilter("nearest", "nearest")
 
 
 function love.load()
-    -- anim8 = require "lib/anim8"
     Player = {}
-
+    liveRelode.reset = true
     Player.x = 400
     Player.y = 200
-    
 end
 
 function love.update(dt)
-    if love.keyboard.isDown("k") or love.keyboard.isDown("up") then
+    if love.keyboard.isDown("w") or love.keyboard.isDown("up") then
         Player.y = Player.y - Speed * dt
     end
     if love.keyboard.isDown("a") or love.keyboard.isDown("left") then
