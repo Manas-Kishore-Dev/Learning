@@ -1,13 +1,15 @@
 local love = require("love")
 Speed = 100  -- speed of the player
+love.graphics.setDefaultFilter("nearest", "nearest")
+
 
 function love.load()
-    Anim8 = require("Libraries/anim8.lua")
+    anim8 = require "lib/anim8"
     Player = {}
 
     Player.x = 400
     Player.y = 200
-    Player.sprite = love.graphics.newImage("Assets/Sprite/sprite.png")
+    Player.sprite = love.graphics.newImage("Assets/sprites/knight.png")
 end
 
 function love.update(dt)
@@ -26,5 +28,5 @@ function love.update(dt)
 end
 
 function love.draw ()
-    love.graphics.draw(Player.sprite, Player.x, Player.y, 0, 0.5)
+    love.graphics.draw(Player.sprite, Player.x, Player.y, 0, 5)
 end
