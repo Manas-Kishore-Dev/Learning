@@ -1,19 +1,21 @@
-local love = require("love")
-Speed = 100  -- speed of the player
+local liveRelode = require "lib/livereload" 
+local anim8 = require "lib/anim8"
+local love = require "love"
+Speed = 100 
 love.graphics.setDefaultFilter("nearest", "nearest")
 
 
 function love.load()
-    anim8 = require "lib/anim8"
+    -- anim8 = require "lib/anim8"
     Player = {}
 
     Player.x = 400
     Player.y = 200
-    Player.sprite = love.graphics.newImage("Assets/sprites/knight.png")
+    
 end
 
 function love.update(dt)
-    if love.keyboard.isDown("w") or love.keyboard.isDown("up") then
+    if love.keyboard.isDown("k") or love.keyboard.isDown("up") then
         Player.y = Player.y - Speed * dt
     end
     if love.keyboard.isDown("a") or love.keyboard.isDown("left") then
@@ -27,6 +29,6 @@ function love.update(dt)
     end
 end
 
-function love.draw ()
-    love.graphics.draw(Player.sprite, Player.x, Player.y, 0, 5)
+function love.draw()
+    love.graphics.circle("fill", Player.x, Player.y, 100)
 end
