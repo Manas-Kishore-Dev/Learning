@@ -2,6 +2,7 @@ local liveRelode = require "lib/livereload"
 local anim8 = require "lib/anim8"
 local love = require "love"
 local isInFrame = true
+local spawnTimer = 2
 
 Gravity = 144
 JumpSpeed = 144
@@ -33,6 +34,7 @@ function love.load()
     Collidor = {}
     Collidor.spriteSheet = love.graphics.newImage("assets/Tiles/Custom/PipeStyle1.png")
     Collidor.x = 600
+    Collidor.y = math.random()
 
     
     
@@ -64,6 +66,15 @@ function love.update(dt)
 
     -- Updating pipe's position
     Collidor.x = Collidor.x - 100 * dt
+
+    -- managing timer
+    spawnTimer = spawnTimer - dt
+
+    if spawnTimer <= 0 then
+        Collidor.x = 600
+        spawnTimer = 2
+    end
+
 end
 
 function love.draw()
