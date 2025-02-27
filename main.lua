@@ -9,8 +9,10 @@ love.graphics.setDefaultFilter("nearest", "nearest")
 function love.load()
     love.window.setTitle("Flappy Bird Clone")
     love.window.setMode(765, 765)
-    Player = {}
     liveRelode.reset = true
+
+    --Player Stuff
+    Player = {}
     Player.x = 400
     Player.y = 200
     Player.targetY = Player.y
@@ -19,6 +21,12 @@ function love.load()
     Player.spritesheet = love.graphics.newImage("assets/Player/StyleBird1/Bird1-1.png")
     Player.grid = anim8.newGrid(16,16, Player.spritesheet:getWidth(), Player.spritesheet:getHeight())
     Player.animation = anim8.newAnimation(Player.grid('1-4', 1), 0.2)
+
+    -- Collidor Stuff
+    Collidor = {}
+    Collidor.spriteSheet = love.graphics.newImage("assets/Tiles/Style 1/PipeStyle1.png")
+    Collidor.grid = anim8.newGrid(16, 16, Collidor.spriteSheet:getWidth(), Collidor.spriteSheet:getHeight())
+    Collidor.sprite = Collidor.grid('1-1', 1)
 
 end
 
@@ -39,5 +47,6 @@ end
 
 function love.draw()
     love.graphics.draw(Background, 0, 0, 0, 3)
-    Player.animation:draw(Player.spritesheet, Player.x, Player.y, 0, 3)
+    Player.animation:draw(Player.spritesheet, Player.x, Player.y, 0, 3 ,3, 8 , 8 )
+    
 end
