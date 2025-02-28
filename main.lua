@@ -1,6 +1,5 @@
-local liveRelode = require "lib/livereload"
-local anim8 = require "lib/anim8"
-local love = require "love"
+_G.anim8 = require "lib/anim8"
+_G.love = require "love"
 local isInFrame = true
 local spawnTimer = 2
 
@@ -12,9 +11,6 @@ love.graphics.setDefaultFilter("nearest", "nearest")
 local world = love.physics.newWorld(0, 0)
 
 function love.load()
-    love.window.setTitle("Flappy Bird Clone")
-    love.window.setMode(765, 765)
-    liveRelode.reset = true
 
     --Player Stuff
     Player = {}
