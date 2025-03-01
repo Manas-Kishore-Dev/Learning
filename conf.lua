@@ -1,7 +1,6 @@
-_G.love = require "love"
+_G.love = require 'love'
 
 function love.conf(t)
-    t.window.title = "Minesweeper"
-    t.window.width = 765
-    t.window.height = 765
+    t.window.title = "Flappy Bird Clone"
+    -- t.window.fullscreen = true
 end
